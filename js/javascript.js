@@ -12,8 +12,10 @@ var imageArray = ["images/picture01.jpg", "images/picture02.jpg", "images/pictur
 //debug message
 //alert("Variables Loaded");
 
+var count = imageArray.length;
+
 var imageArrayPreload = function () {
-    for (var i = 0; i < imageArray.length; i++) {
+    for (var i = 0; i < count; i++) {
         image.src = imageArray[i];
         imageArray.push(image);
     }
@@ -21,7 +23,7 @@ var imageArrayPreload = function () {
 
 var activateSlideShow = function () {
     var path = document.getElementById("activateButton").innerHTML;
-    var testState = new RegExp("play");
+    var testState = new RegExp("Start");
 
 
     if (testState.test(path)) {
@@ -38,7 +40,7 @@ var slideShowActive = function () {
         currentSlide = 0;
     }
 
-    document.getElementById("slideShowImage").src = images[currentSlide];
+    document.getElementById("slideShowImage").src = imageArray[currentSlide];
 
     currentSlide++;
     timer = setTimeout(slideShowActive, 5000);
